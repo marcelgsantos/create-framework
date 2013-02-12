@@ -17,3 +17,12 @@ Criando um Framework - Anotações
 * Por mais simples que uma aplicação PHP possa ser ou parecer simples, algumas ações precisam ser tomadas para melhorar a robustez da aplicação.
 * Algumas destas ações são: tratar query strings para o caso de não serem informadas; proteção contra vulnerabilidades de segurança como o XSS;
 * Realizar o escapamento do código utilizando `htmlspecialchars` é enfadonho e propenso a erros. Neste caso, sugere-se a utilização de uma ferramenta de template como o Twig onde o escapamento do código é realizado por padrão.
+* Escrever um código que seja facilmente testável também trata-se de uma característica muito importante para o desenvolvimento de uma aplicação robusta e tolerante a erros nos dias de hoje.
+* É fato que é uma ótima idéia utilizar um framework do que manter sua aplicação em PHP puro. Isto permite a prevenção de erros, códigos inseguros e torna o código mais facilmente testável. Além disso, são bastante produtivos permitindo escrever códigos melhores e de forma mais rápida.
+* Escrever código web é escrever sobre como interagir com HTTP. A especificação do HTTP descreve como um cliente interage com um servidor através de mensagens bem definidas de requisição e resposta (um browser interagindo com uma aplicação no servidor web, por exemplo).
+* No PHP, as requisições são representadas pelas variáveis globais $_GET, $_POST, $_SESSION entre outras e as respostas são geradas por funções como echo(), header(), setcookie() entre outras.
+* O primeiro passo para um código melhor é utilizar uma abordagem orientada à objetos. Este é o principal objetivo do componente HttpFoundation do Symfony2 ao substituir as variáveis globais e as funções do PHP para uma abstração orientada à objetos.
+* Para utilizar este componente, basta adicioná-lo como dependência no arquivo `composer.json` e executar o comando `composer update` para a instalação do componente em questão.
+* O método createFromGlobals() cria um objeto Request baseado nas atuais variáveis globais do PHP.
+* O método send() de Reponse envia um objeto Response de volta para o cliente (ele primeiro envia os cabeçalhos HTTP seguidos pelo conteúdo).
+* Os componentes do Symfony2 são auditados para falhas de segurança por companhias independentes. E sendo também um projeto open-source permite que outros desenvolvedores corrijam alguma potencial falha de segurança.
