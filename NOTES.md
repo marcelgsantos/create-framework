@@ -27,3 +27,4 @@ Criando um Framework - Anotações
 * O método send() de Reponse envia um objeto Response de volta para o cliente (ele primeiro envia os cabeçalhos HTTP seguidos pelo conteúdo).
 * Os componentes do Symfony2 são auditados para falhas de segurança por companhias independentes. E sendo também um projeto open-source permite que outros desenvolvedores corrijam alguma potencial falha de segurança.
 * Componente HttpFoundation do Symfony2 nos permitem escrever códigos mais testáveis e melhores e mais rapidamente, além de resolver parte dos problemas que enfrentamos no dia-a-dia.
+* O compartilhamento de código é uma ótima premissa para se construir um framework. É interessante também considerar a criação de templates e tornar nosso código testável.
