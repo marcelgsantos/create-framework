@@ -14,3 +14,6 @@ Criando um Framework - Changelog
 * Parte 03
  * Adicionar página à aplicação básica com comportamento semelhante à outra página já existente
  * Isolamento de código compartilhado
+ * Mapeamento de rotas para scripts
+ * Controle de rotas inexistentes
+ * Adicionar front controller
