@@ -30,3 +30,5 @@ Criando um Framework - Anotações
 * O compartilhamento de código é uma ótima premissa para se construir um framework. É interessante também considerar a criação de templates e tornar nosso código testável.
 * Outro inconveniente é que para adicionar uma nova página é necessário criar um novo arquivo PHP que é exposto para o usuario através da URL pois há um mapeamento direto entre o script PHP e esta URL. Isso ocorre porque o despacho da requisição é feito diretamente pelo servidor. É uma boa prática mover este gerenciamento para o código para melhor flexibilidade. Este gerenciamento pode ser alcançado fazendo o roteamento de todas as requisições do cliente para um único script PHP.
 * Expor um único script PHP para o usuário final é um padrão de projeto chamado 'front controller'.
+* Podemos ocultar o nome do script do 'front controller' nas URL através de regras do servidor web utilizado. Isto torna as URLs mais amigáveis e inibe a exposição do nome do script PHP do 'front controller'.
+* Utilizando o 'front controller' podemos ainda deixar os arquivos em diretórios mais seguros que não são acessados diretamente no diretório raiz da web.
