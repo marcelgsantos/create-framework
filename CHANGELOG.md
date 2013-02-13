@@ -19,3 +19,4 @@ Criando um Framework - Changelog
  * Adicionar front controller
  * Adicionar arquivo .htaccess com URL rewriting para tornar a URL amigável e não expor o nome dos scripts PHP com acesso somente para o front controller
  * Estruturação do diretório do projeto para não manter acessíveis os scripts PHP para o cliente
+ * Exibição de templates
