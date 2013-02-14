@@ -32,3 +32,6 @@ Criando um Framework - Anotações
 * Expor um único script PHP para o usuário final é um padrão de projeto chamado 'front controller'.
 * Podemos ocultar o nome do script do 'front controller' nas URL através de regras do servidor web utilizado. Isto torna as URLs mais amigáveis e inibe a exposição do nome do script PHP do 'front controller'.
 * Utilizando o 'front controller' podemos ainda deixar os arquivos em diretórios mais seguros que não são acessados diretamente no diretório raiz da web.
+* Um aspecto importante de qualquer website é o formato da URL. Graças ao mapeamento de URL é possível desacoplar a URL do código que gera a saída associada.
+* O componente Routing do Symfony2 permite realizar tarefas tais como roteamento de URLs, geração de URLs, verificação de atributos, verificação de métodos HTTP entre outras tarefas.
+* 

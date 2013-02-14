@@ -23,3 +23,5 @@ Criando um Framework - Changelog
 
 * Parte 04
  * Refatoração de código e remoção das strings de consulta do template
+ * Adicionar componente Routing do Symfony2 como dependência
+ * Remoção do autoload customizado e utilização do autoload gerado pelo Composer
