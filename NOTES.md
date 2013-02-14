@@ -34,4 +34,6 @@ Criando um Framework - Anotações
 * Utilizando o 'front controller' podemos ainda deixar os arquivos em diretórios mais seguros que não são acessados diretamente no diretório raiz da web.
 * Um aspecto importante de qualquer website é o formato da URL. Graças ao mapeamento de URL é possível desacoplar a URL do código que gera a saída associada.
 * O componente Routing do Symfony2 permite realizar tarefas tais como roteamento de URLs, geração de URLs, verificação de atributos, verificação de métodos HTTP entre outras tarefas.
-* 
+* Dada uma coleção de rotas (RouteCollection), um objeto UrlMatcher pode encontrar a rota correspondente ao caminho da URL informada. Neste caso, um array de atributos é retornado junto com a própria rota correspondida. Caso nenhuma rota seja correspondida ao caminho da URL uma exceção será lançada.
+* Utilizando o componente Routing do Symfony2 obtém-se uma facilidade enorme quando utiliza-se a correspondência e a geração de URLs em conjunto permitindo a criação de URLs relativas e absolutas de maneira fácil e prática.
+* É uma boa prática realizar a separação de códigos de configuração e do framework em arquivos distintos.

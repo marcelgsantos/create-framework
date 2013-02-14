@@ -25,3 +25,6 @@ Criando um Framework - Changelog
  * Refatoração de código e remoção das strings de consulta do template
  * Adicionar componente Routing do Symfony2 como dependência
  * Remoção do autoload customizado e utilização do autoload gerado pelo Composer
+ * Configuração de rotas movida para um arquivo separado
+ * Utilização dos nomes das rotas para os templates
+ * Erros do tipo 500 gerenciados corretamente
