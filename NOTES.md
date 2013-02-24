@@ -28,7 +28,7 @@ Criando um Framework - Anotações
 * Os componentes do Symfony2 são auditados para falhas de segurança por companhias independentes. E sendo também um projeto open-source permite que outros desenvolvedores corrijam alguma potencial falha de segurança.
 * Componente HttpFoundation do Symfony2 nos permitem escrever códigos mais testáveis e melhores e mais rapidamente, além de resolver parte dos problemas que enfrentamos no dia-a-dia.
 * O compartilhamento de código é uma ótima premissa para se construir um framework. É interessante também considerar a criação de templates e tornar nosso código testável.
-* Outro inconveniente é que para adicionar uma nova página é necessário criar um novo arquivo PHP que é exposto para o usuario através da URL pois há um mapeamento direto entre o script PHP e esta URL. Isso ocorre porque o despacho da requisição é feito diretamente pelo servidor. É uma boa prática mover este gerenciamento para o código para melhor flexibilidade. Este gerenciamento pode ser alcançado fazendo o roteamento de todas as requisições do cliente para um único script PHP.
+* Outro inconveniente é que para adicionar uma nova página é necessário criar um novo arquivo PHP que é exposto para o usuário através da URL pois há um mapeamento direto entre o script PHP e esta URL. Isso ocorre porque o despacho da requisição é feito diretamente pelo servidor. É uma boa prática mover este gerenciamento para o código para melhor flexibilidade. Este gerenciamento pode ser alcançado fazendo o roteamento de todas as requisições do cliente para um único script PHP.
 * Expor um único script PHP para o usuário final é um padrão de projeto chamado 'front controller'.
 * Podemos ocultar o nome do script do 'front controller' nas URL através de regras do servidor web utilizado. Isto torna as URLs mais amigáveis e inibe a exposição do nome do script PHP do 'front controller'.
 * Utilizando o 'front controller' podemos ainda deixar os arquivos em diretórios mais seguros que não são acessados diretamente no diretório raiz da web.
@@ -37,3 +37,7 @@ Criando um Framework - Anotações
 * Dada uma coleção de rotas (RouteCollection), um objeto UrlMatcher pode encontrar a rota correspondente ao caminho da URL informada. Neste caso, um array de atributos é retornado junto com a própria rota correspondida. Caso nenhuma rota seja correspondida ao caminho da URL uma exceção será lançada.
 * Utilizando o componente Routing do Symfony2 obtém-se uma facilidade enorme quando utiliza-se a correspondência e a geração de URLs em conjunto permitindo a criação de URLs relativas e absolutas de maneira fácil e prática.
 * É uma boa prática realizar a separação de códigos de configuração e do framework em arquivos distintos.
+* Adicionar a lógica dentro do template não é uma boa idéia, principalmente se levarmos em conta o princípio de separação de responsabilidades.
+* A separação do código do template do código da lógica pode ser feito utilizando uma nova camada de código chamada de controller.
+* O objetivo do controller é gerar uma resposta baseada na informação enviada pela requisição do cliente.
+* A classe Request dos componentes do Symfony2 possui uma funcionalidade chamada 'attributes'. Esta funcionalidade permite incorporar informações sobre a requisição (Request) que não está diretamente relacionada aos dados da requisição HTTP.

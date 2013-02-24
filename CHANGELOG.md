@@ -28,3 +28,6 @@ Criando um Framework - Changelog
  * Configuração de rotas movida para um arquivo separado
  * Utilização dos nomes das rotas para os templates
  * Erros do tipo 500 gerenciados corretamente
+
+* Parte 05
+ * Refatoração de código e criação de um controller genérico
