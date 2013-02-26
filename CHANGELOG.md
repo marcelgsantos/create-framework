@@ -32,4 +32,4 @@ Criando um Framework - Changelog
 * Parte 05
  * Refatoração de código e criação de um controller genérico
  * Criação de um controller customizável durante a definição das rotas
- 
+ * Criação de um controller customizado usando funções anônimas
