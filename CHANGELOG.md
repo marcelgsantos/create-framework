@@ -36,3 +36,6 @@ Criando um Framework - Changelog
 
 * Parte 06
  * Remoção de código procedural e conversão para classes
+ * Adicionar componente HttpKernel do Symfony2 como dependência
+ * Alterar atributo injetado no método do controller
+ * Refatoração de código utilizando o controller resolver do componente HttpKernel

@@ -44,3 +44,16 @@ Criando um Framework - Anotações
 * Utilizar a função `call_user_func()` do PHP permite a utilização de qualquer forma de callback.
 * Como convenção, para cada rota, o controller associado é configurado através do atributo `_controller`.
 * Na definição de um controller usando funções anônimas, é possível modificar o objeto de resposta e também passar argumentos opcionais ao template.
+* Por motivos de performance, os controllers não devem ser instanciados todos de uma vez. Eles devem ser carregados tardiamente (lazy loading) somente para a rota correspondida.
+* O componente HttpKernel, dos componentes do Symfony2, possui, entre outras funcionalidades, um controller resolver.
+* Um controller resolver sabe como determinar o controller à ser excutado e os argumentos passados para ele através do objeto Request.
+* Todos os controller resolvers implementam a interface `ControllerResolverInterface`.
+* O método `getController()` baseia-se na mesma convenção explicada anteriormente: o atributo `_controller` da requisição deve conter o controller associado à requisição (Request).
+* Além dos modos de callbacks existentes no PHP, o método `getController()` também suporta uma string composta do nome da classe, de dois pontos (::) e de um nome de método como um método de callback válido, por exemplo: `MyController::indexAction`.
+* O controller resolver também manipula adequadamente o gerenciamento de erros. Quando não é definido o atributo `_controller` para uma determinada rota, por exemplo.
+* O método `getArguments()` examina a assinatura do controller para determinar quais argumentos são passados para ele usando a API nativa de Reflection do PHP.
+* O método do controller precisa ter o objeto Request como um argumento. O método `getArguments()` saberá como injetá-lo corretamente se o método do controller estiver com o type-hint definido corretamente.
+* O método `getArguments()` também é capaz de injetar qualquer atributo do objeto Request. Basta que o argumento do método do controller tenha o mesmo nome do atributo.
+* É possível também injetar o objeto Request e quaisquer atributos do objeto Request ao mesmo tempo. E como a correpondência é feita através do type-hint e/ou do nome dos argumentos, a ordem é indiferente neste caso.
+* É possível, ainda, definir valores padrão para quaisquer argumentos que correspondam à um atributo opcional da requisição (Request).
+* O controller resolver é responsável também por validar as chamadas ao controller e seus argumentos. No caso de algum problema, é lançada uma exceção com uma mensagem amigável detalhando o problema (a classe do controller não existe, método não definido, argumento sem atributo correspondente entre outros, por exemplo).
