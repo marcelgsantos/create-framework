@@ -41,3 +41,5 @@ Criando um Framework - Anotações
 * A separação do código do template do código da lógica pode ser feito utilizando uma nova camada de código chamada de controller.
 * O objetivo do controller é gerar uma resposta baseada na informação enviada pela requisição do cliente.
 * A classe Request dos componentes do Symfony2 possui uma funcionalidade chamada 'attributes'. Esta funcionalidade permite incorporar informações sobre a requisição (Request) que não está diretamente relacionada aos dados da requisição HTTP.
+* Utilizar a função `call_user_func()` do PHP permite a utilização de qualquer forma de callback.
+* Como convenção, para cada rota, o controller associado é configurado através do atributo `_controller`.
