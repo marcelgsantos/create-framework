@@ -33,3 +33,6 @@ Criando um Framework - Changelog
  * Refatoração de código e criação de um controller genérico
  * Criação de um controller customizável durante a definição das rotas
  * Criação de um controller customizado usando funções anônimas
+
+* Parte 06
+ * Remoção de código procedural e conversão para classes
