@@ -57,3 +57,6 @@ Criando um Framework - Anotações
 * É possível também injetar o objeto Request e quaisquer atributos do objeto Request ao mesmo tempo. E como a correpondência é feita através do type-hint e/ou do nome dos argumentos, a ordem é indiferente neste caso.
 * É possível, ainda, definir valores padrão para quaisquer argumentos que correspondam à um atributo opcional da requisição (Request).
 * O controller resolver é responsável também por validar as chamadas ao controller e seus argumentos. No caso de algum problema, é lançada uma exceção com uma mensagem amigável detalhando o problema (a classe do controller não existe, método não definido, argumento sem atributo correspondente entre outros, por exemplo).
+* É recomendável, ao criar um framework, encapsular o código numa classe. Isso permite tornar o código reutilizável e testável entre outros benefícios.
+* Existem frameworks que contam com o simples lógica de criar um resposta (Response) associada com uma requisição (Request).
+* Para classes definidas na aplicação serem carregadas pelo autoload, é necessário informar o carregamento destas classes no arquivo de configuração `composer.json`.

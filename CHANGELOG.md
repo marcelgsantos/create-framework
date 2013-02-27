@@ -39,3 +39,11 @@ Criando um Framework - Changelog
  * Adicionar componente HttpKernel do Symfony2 como dependência
  * Alterar atributo injetado no método do controller
  * Refatoração de código utilizando o controller resolver do componente HttpKernel
+
+* Parte 07
+ * Refatoração do código do framework e da aplicação utilizando classes
+ * Criação de namespaces para as classes do framework e da aplicação
+ * Mover a lógica da manipulação de requisição para a classe do framework
+ * Mover a lógica da aplicação para as classes da aplicação
+ * Refatoração do código do front controller e da configuração do framework
+ * Aplicação com quatro camadas distintas: front controller, código do framework, código da aplicação e código da configuração
