@@ -60,3 +60,8 @@ Criando um Framework - Anotações
 * É recomendável, ao criar um framework, encapsular o código numa classe. Isso permite tornar o código reutilizável e testável entre outros benefícios.
 * Existem frameworks que contam com o simples lógica de criar um resposta (Response) associada com uma requisição (Request).
 * Para classes definidas na aplicação serem carregadas pelo autoload, é necessário informar o carregamento destas classes no arquivo de configuração `composer.json`.
+* Quando se cria um framework, devemos estar certos de ele funciona como desejado. Caso contrário, todas as aplicações baseadas neste framework exibirão os mesmos tipos de erros. Por outro lado, quando se corrige algum erro, este erro também será corrigido em todas as aplicações também.
+* Escrever testes unitários para um framework é uma boa prática para garantir sua qualidade. Pode-se utilizar o PHPUnit como biblioteca para testes unitários em PHP.
+* Para evitar a criação de todas as dependências quando escrevemos testes unitários, pode-se utilizar dublês de testes.
+* Os dublês de testes são fáceis de criar quando nos baseamos em interfaces ao invés de classes concretas. E, por sorte, o Symfony2 fornece tais interfaces para os objetos principais tais como URL matcher e controller resolver.
+* Graças ao código orientado a objetos é possível escrever testes unitários para cobrir todos os casos de uso possíveis para um framework.

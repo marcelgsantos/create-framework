@@ -47,3 +47,12 @@ Criando um Framework - Changelog
  * Mover a lógica da aplicação para as classes da aplicação
  * Refatoração do código do front controller e da configuração do framework
  * Aplicação com quatro camadas distintas: front controller, código do framework, código da aplicação e código da configuração
+
+* Parte 08
+ * Adicionar biblioteca de testes PHPUnit como dependência para desenvolvimento
+ * Criação do arquivo de configuração do PHPUnit
+ * Criação do diretório de testes
+ * Modificação do framework para a utilização de interfaces para permitir testes unitários utilizando dublês de teste
+ * Criação do teste para erro 404 (requisição que não corresponde à nenhuma rota)
+ * Criação do teste para erro 501 (qualquer outro erro de execução)
+ * Criação do teste para solicitação com sucesso
