@@ -56,3 +56,7 @@ Criando um Framework - Changelog
  * Criação do teste para erro 404 (requisição que não corresponde à nenhuma rota)
  * Criação do teste para erro 501 (qualquer outro erro de execução)
  * Criação do teste para solicitação com sucesso
+
+* Parte 09
+ * Adicionar componente EventDispatcher do Symfony2 como dependência
+ * Adicionar evento à ser despachado antes do retorno da resposta

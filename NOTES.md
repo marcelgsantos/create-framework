@@ -14,7 +14,7 @@ Criando um Framework - Anotações
 * Em PHP é necessário incluir - utilizando o método require() - os arquivos onde as classes são definidas para que possamos utilizá-las. Como isso pode acarretar em tarefas chatas e enfadonhas, com algumas convenções, podemos realizar o autoload das classes através do próprio PHP de forma automática.
 * O componente ClassLoader do Symfony2 fornece um autoloader que implementa o padrão PSR-0 e, na maioria das vezes, ele é suficiente para fazer o autoload das classes de seu projeto.
 * O Composer cria automaticamente um autoloader para todas as suas dependências instaladas. Neste caso, ao invés de utilizar o componente ClassLoader, pode-se apenas incluir `vendor/autoload.php`.
-* Por mais simples que uma aplicação PHP possa ser ou parecer simples, algumas ações precisam ser tomadas para melhorar a robustez da aplicação.
+* Por mais simples que uma aplicação PHP possa ser ou parecer, algumas ações precisam ser tomadas para melhorar a robustez da aplicação.
 * Algumas destas ações são: tratar query strings para o caso de não serem informadas; proteção contra vulnerabilidades de segurança como o XSS;
 * Realizar o escapamento do código utilizando `htmlspecialchars` é enfadonho e propenso a erros. Neste caso, sugere-se a utilização de uma ferramenta de template como o Twig onde o escapamento do código é realizado por padrão.
 * Escrever um código que seja facilmente testável também trata-se de uma característica muito importante para o desenvolvimento de uma aplicação robusta e tolerante a erros nos dias de hoje.
@@ -26,11 +26,11 @@ Criando um Framework - Anotações
 * O método createFromGlobals() cria um objeto Request baseado nas atuais variáveis globais do PHP.
 * O método send() de Reponse envia um objeto Response de volta para o cliente (ele primeiro envia os cabeçalhos HTTP seguidos pelo conteúdo).
 * Os componentes do Symfony2 são auditados para falhas de segurança por companhias independentes. E sendo também um projeto open-source permite que outros desenvolvedores corrijam alguma potencial falha de segurança.
-* Componente HttpFoundation do Symfony2 nos permitem escrever códigos mais testáveis e melhores e mais rapidamente, além de resolver parte dos problemas que enfrentamos no dia-a-dia.
+* O componente HttpFoundation do Symfony2 nos permitem escrever códigos mais testáveis e melhores e mais rapidamente, além de resolver parte dos problemas que enfrentamos no dia-a-dia.
 * O compartilhamento de código é uma ótima premissa para se construir um framework. É interessante também considerar a criação de templates e tornar nosso código testável.
 * Outro inconveniente é que para adicionar uma nova página é necessário criar um novo arquivo PHP que é exposto para o usuário através da URL pois há um mapeamento direto entre o script PHP e esta URL. Isso ocorre porque o despacho da requisição é feito diretamente pelo servidor. É uma boa prática mover este gerenciamento para o código para melhor flexibilidade. Este gerenciamento pode ser alcançado fazendo o roteamento de todas as requisições do cliente para um único script PHP.
 * Expor um único script PHP para o usuário final é um padrão de projeto chamado 'front controller'.
-* Podemos ocultar o nome do script do 'front controller' nas URL através de regras do servidor web utilizado. Isto torna as URLs mais amigáveis e inibe a exposição do nome do script PHP do 'front controller'.
+* Podemos ocultar o nome do script do 'front controller' nas URLs através de regras do servidor web utilizado. Isto torna as URLs mais amigáveis e inibe a exposição do nome do script PHP do 'front controller'.
 * Utilizando o 'front controller' podemos ainda deixar os arquivos em diretórios mais seguros que não são acessados diretamente no diretório raiz da web.
 * Um aspecto importante de qualquer website é o formato da URL. Graças ao mapeamento de URL é possível desacoplar a URL do código que gera a saída associada.
 * O componente Routing do Symfony2 permite realizar tarefas tais como roteamento de URLs, geração de URLs, verificação de atributos, verificação de métodos HTTP entre outras tarefas.
@@ -58,10 +58,17 @@ Criando um Framework - Anotações
 * É possível, ainda, definir valores padrão para quaisquer argumentos que correspondam à um atributo opcional da requisição (Request).
 * O controller resolver é responsável também por validar as chamadas ao controller e seus argumentos. No caso de algum problema, é lançada uma exceção com uma mensagem amigável detalhando o problema (a classe do controller não existe, método não definido, argumento sem atributo correspondente entre outros, por exemplo).
 * É recomendável, ao criar um framework, encapsular o código numa classe. Isso permite tornar o código reutilizável e testável entre outros benefícios.
-* Existem frameworks que contam com o simples lógica de criar um resposta (Response) associada com uma requisição (Request).
+* Existem frameworks que contam com a simples lógica de criar um resposta (Response) associada com uma requisição (Request).
 * Para classes definidas na aplicação serem carregadas pelo autoload, é necessário informar o carregamento destas classes no arquivo de configuração `composer.json`.
 * Quando se cria um framework, devemos estar certos de ele funciona como desejado. Caso contrário, todas as aplicações baseadas neste framework exibirão os mesmos tipos de erros. Por outro lado, quando se corrige algum erro, este erro também será corrigido em todas as aplicações também.
 * Escrever testes unitários para um framework é uma boa prática para garantir sua qualidade. Pode-se utilizar o PHPUnit como biblioteca para testes unitários em PHP.
 * Para evitar a criação de todas as dependências quando escrevemos testes unitários, pode-se utilizar dublês de testes.
 * Os dublês de testes são fáceis de criar quando nos baseamos em interfaces ao invés de classes concretas. E, por sorte, o Symfony2 fornece tais interfaces para os objetos principais tais como URL matcher e controller resolver.
 * Graças ao código orientado a objetos é possível escrever testes unitários para cobrir todos os casos de uso possíveis para um framework.
+* Uma característica de um bom framework é ser extensível. Isso significa que o desenvolvedor deve ser capaz de criar facilmente um hook que possa ser acoplado no ciclo de vida do framework modificando a maneira com que a requisição é manipulada.
+* Alguns tipos de hooks conhecidos são a autenticação ou o cache, por exemplo. 
+* Um hook, para ser flexível, deve ser plug-and-play. Em algumas linguagens, existem até padrões para criação de hooks tal como o Rack para Ruby.
+* Como não há padrão para hooks em PHP, geralmente usa-se um padrão de projeto bem conhecido chamado Observer, pois ele permite que qualquer tipo de comportamento seja acoplado ao código.
+* O componente EventDispatcher do Symfony2 implementa uma versão reduzida deste padrão de projeto.
+* O funcionamento é o seguinte: o 'dispatcher', o objeto central do sistema de 'event dispatcher', informa todos os ouvintes ('listeners', em inglês) sobre um evento despachado para eles. Ou melhor: seu código despacha um evento para o 'dispatcher', o 'dispatcher' informa todos os ouvintes registrados sobre o evento, e cada ouvinte faz o que bem entender com o evento.
+* O método `addListener()` associa um callback PHP válido à um determinado evento. O nome do evento deve ser o mesmo usado na chamada `dispatch()`.
