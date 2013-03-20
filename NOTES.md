@@ -77,3 +77,9 @@ Criando um Framework - Anotações
 * Para dizer ao dispatcher para executar os listeners com prioridade alta, mude a prioridade para um número positivo. Números negativos podem ser usados para listeners com prioridade baixa.
 * Ao criar seu framework, analise as prioridades (reservando alguns números para ouvintes internos, por exemplo) e documente-as extensivamente.
 * O método `addListener()` pode ser associado também a um array contendo a classe listener junto com o método a ser executado e também ter uma prioridade informada.
+* O código dos listeners definidos em classes é uma boa prática. É importante que as prioridades também possam ser definidas na própria classe do listener.
+* Informações como prioridade e nome do método executado de um listener ao ser definido no front controller ou em qualquer outra parte da aplicação estão altamente expostos e precisam serem alterados manualmente toda vez que uma refatoração no listener seja necessária.
+* Para solucionar alguns problemas relacionados aos listeners recomenda-se a utilização de subscribers.
+* Um subscriber conhece sobre todos os eventos que está interessado e passa estas informações para o dispatcher através do método `getSubscribedEvents()`.
+* Um subscriber do componente EventDispatcher do Symfony2 deve implementar a interface `EventSubscriberInterface`.
+* Um subscriber pode armazenar quantos listeners e eventos forem necessários.

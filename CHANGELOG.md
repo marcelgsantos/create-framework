@@ -61,3 +61,4 @@ Criando um Framework - Changelog
  * Adicionar componente EventDispatcher do Symfony2 como dependência
  * Adicionar evento à ser despachado antes do retorno da resposta
  * Refatoração dos listeners para classes próprias
+ * Refatoração da aplicação para utilização de subscribers ao invés de listeners
