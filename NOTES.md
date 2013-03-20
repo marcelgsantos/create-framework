@@ -72,3 +72,8 @@ Criando um Framework - Anotações
 * O componente EventDispatcher do Symfony2 implementa uma versão reduzida deste padrão de projeto.
 * O funcionamento é o seguinte: o 'dispatcher', o objeto central do sistema de 'event dispatcher', informa todos os ouvintes ('listeners', em inglês) sobre um evento despachado para eles. Ou melhor: seu código despacha um evento para o 'dispatcher', o 'dispatcher' informa todos os ouvintes registrados sobre o evento, e cada ouvinte faz o que bem entender com o evento.
 * O método `addListener()` associa um callback PHP válido à um determinado evento. O nome do evento deve ser o mesmo usado na chamada `dispatch()`.
+* É possível adicionar outros listeners na aplicação. Neste caso, dependendo da ordem em que os listeners foram definidos, pode-se obter um resultado esperado ou não caso sua aplicação dependa da ordem de execução correta dos listeners.
+* Nos casos em que a ordem de execução dos listeners são importantes, podem ser definidas prioridades para estes casos. Por padrão, todos os listeners são registrados com a mesma prioridade, 0.
+* Para dizer ao dispatcher para executar os listeners com prioridade alta, mude a prioridade para um número positivo. Números negativos podem ser usados para listeners com prioridade baixa.
+* Ao criar seu framework, analise as prioridades (reservando alguns números para ouvintes internos, por exemplo) e documente-as extensivamente.
+* O método `addListener()` pode ser associado também a um array contendo a classe listener junto com o método a ser executado e também ter uma prioridade informada.
